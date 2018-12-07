@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1、jdk1.7与jdk1.8的新特性1.7 1、switch语法支持String 2、可以直接使用0b开头表示二进制变量 3、try-with-resource语句用于生命资源，保证资源在程序结束后关闭 4、catch多个异常 5、数字类型的下划线表示方式 1.8 1、允许给接口添加default的方法的实现 2、lambda表达式 3、函数式接口 4、关于日期处理在java.time包下有了新">
+<meta name="keywords" content="java总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaSE题目">
+<meta property="og:url" content="http://yoursite.com/2018/12/07/javaSE题目/index.html">
+<meta property="og:site_name" content="日暮途远的博客">
+<meta property="og:description" content="1、jdk1.7与jdk1.8的新特性1.7 1、switch语法支持String 2、可以直接使用0b开头表示二进制变量 3、try-with-resource语句用于生命资源，保证资源在程序结束后关闭 4、catch多个异常 5、数字类型的下划线表示方式 1.8 1、允许给接口添加default的方法的实现 2、lambda表达式 3、函数式接口 4、关于日期处理在java.time包下有了新">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/12/07/javaSE题目/collections.jpg">
+<meta property="og:updated_time" content="2018-12-07T09:48:57.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaSE题目">
+<meta name="twitter:description" content="1、jdk1.7与jdk1.8的新特性1.7 1、switch语法支持String 2、可以直接使用0b开头表示二进制变量 3、try-with-resource语句用于生命资源，保证资源在程序结束后关闭 4、catch多个异常 5、数字类型的下划线表示方式 1.8 1、允许给接口添加default的方法的实现 2、lambda表达式 3、函数式接口 4、关于日期处理在java.time包下有了新">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/07/javaSE题目/collections.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/07/javaSE题目/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>javaSE题目 | 日暮途远的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">日暮途远的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/07/javaSE题目/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郭世雄">
+      <meta itemprop="description" content="人生但苦无妨，良人当归即好">
+      <meta itemprop="image" content="/uploads/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="日暮途远的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javaSE题目
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-07 17:04:09 / 修改时间：17:48:57" itemprop="dateCreated datePublished" datetime="2018-12-07T17:04:09+08:00">2018-12-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1、jdk1-7与jdk1-8的新特性"><a href="#1、jdk1-7与jdk1-8的新特性" class="headerlink" title="1、jdk1.7与jdk1.8的新特性"></a>1、jdk1.7与jdk1.8的新特性</h1><p>1.7</p>
+<p>1、switch语法支持String</p>
+<p>2、可以直接使用0b开头表示二进制变量</p>
+<p>3、try-with-resource语句用于生命资源，保证资源在程序结束后关闭</p>
+<p>4、catch多个异常</p>
+<p>5、数字类型的下划线表示方式</p>
+<p>1.8</p>
+<p>1、允许给接口添加default的方法的实现</p>
+<p>2、lambda表达式</p>
+<p>3、函数式接口</p>
+<p>4、关于日期处理在java.time包下有了新的api</p>
+<h1 id="2、基本类型与包装类、基本类型的运算"><a href="#2、基本类型与包装类、基本类型的运算" class="headerlink" title="2、基本类型与包装类、基本类型的运算"></a>2、基本类型与包装类、基本类型的运算</h1><table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>长度（位）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>1</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>8</td>
+</tr>
+<tr>
+<td>char</td>
+<td>16</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>long</td>
+<td>64</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+<p>Integer是一个不可变对象，自动装箱和拆箱是由编译器来完成的。</p>
+<p>1、newInteger(i)与Integer.valueof(i)方法的区别：</p>
+<p>构造方法产生一个新的Integer对象，valueOf()方法有可能通过缓存经常请求的值而显著提高空间和时间性能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中IntegerCache.high值默认为127，可以通过虚拟机参数AutoBoxCacheMax自定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integerc = <span class="number">1</span>;   <span class="comment">//这是自动装箱，编译器调用valueOf(1)方法</span></span><br><span class="line">Integerd = <span class="number">1</span>;</span><br><span class="line">System.out.println(c == d); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>2、自动包装机制的好处：</p>
+<p>节省了常用数值的内存开销和创建对象的开销，提高了效率。</p>
+<p>（1）Integer和int之间可以进行各种比较：Integer对象将自动拆箱后与int值比较。</p>
+<p>（2）两个Integer对象之间也可以用\&gt;、\&lt;符号比较大小：两个Integer对象都拆箱后，在比较大小，但是两个Integer对象最好不要用==比较，因为-128~127范围内是取缓存内对象，所以相等，该范围外是两个不同对象引用比较，所以不等。</p>
+<p>3、其他基本类型的包装机制</p>
+<p>Byte、Short、Long对应的是-128~127</p>
+<p>Character对应的是0~127</p>
+<p>Float和Double没有自动装箱池</p>
+<p>4、基本类型的运算</p>
+<p>（1）在将float、double类型转换为int类型的时候总是截尾，如果想象四舍五入可以+0.5后强转，或者使用Math.round()方法。</p>
+<p>Math.floor()取下整，Math.ceil()取上整。</p>
+<p>（2）char、byte、short在运算之前会自动转换为int类型，结果自然也就是int类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;<span class="keyword">int</span> b = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">short</span> s = a + b;<span class="comment">//错误</span></span><br><span class="line"><span class="keyword">short</span> s =<span class="number">2</span> + <span class="number">3</span>;<span class="comment">//正确</span></span><br></pre></td></tr></table></figure>
+<p>包装类的equals()方法会取值进行比较</p>
+<h1 id="3、switch是否能作用在byte、long、String上？"><a href="#3、switch是否能作用在byte、long、String上？" class="headerlink" title="3、switch是否能作用在byte、long、String上？"></a>3、switch是否能作用在byte、long、String上？</h1><p>在Java5以前，switch(expr)中，expr只能是byte、short、char、int。从Java5开始，Java中引入了枚举类型，expr也可以是enum类型，从Java7开始，expr还可以是字符串（String），但是长整型（long）在目前所有的版本中都是不可以的。</p>
+<h1 id="4、String、StringBuffer、StringBuilder"><a href="#4、String、StringBuffer、StringBuilder" class="headerlink" title="4、String、StringBuffer、StringBuilder"></a>4、String、StringBuffer、StringBuilder</h1><p>StringBuffer是线程安全的</p>
+<p>String对象是不可变的，当需要改变它的内容的时候会返回一个新的对象</p>
+<p>StringBuffer、StringBuilder是变量</p>
+<p>三者在执行速度上：StringBuilder\&gt;StringBuffer\&gt;String</p>
+<p>String对+运算符的重载实际上是使用StringBuilder.append()创建了一个新的String对象</p>
+<p>String为什么设计成不可变对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** The value is used for character storage. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line">    <span class="comment">/** Cache the hash code for the string */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hash; <span class="comment">// Default to 0</span></span><br></pre></td></tr></table></figure>
+<p>包含两个成员变量：value[]：String的字符序列，hash：该String对象的hash值的缓存。我们通过普通代码对一个String的改变都是通过返回一个新的String对象来完成的。但是String也不是绝对不可变的，我们可以通过反射拿到value对象，然后改变它。（final域是不能修改的，但是如果final域指向的对象内的域是可变的话，我们就可以修改final域指向对象的内容）</p>
+<p>设计成不可变的好处</p>
+<p>1、因为它是不可变的，所以其hashCode()永远保持一致，也就是每次在使用一个String对象的hashCode的时候都不用重新计算，直接返回hash值即可，效率更高</p>
+<p>2、不可变对象天生线程安全，可以无需同步的在多个线程间共享</p>
+<p>3、安全性，常用于数据库连接、网络连接、打开文件等，避免了参数修改</p>
+<h1 id="5、常见String比较，intern"><a href="#5、常见String比较，intern" class="headerlink" title="5、常见String比较，intern()"></a>5、常见String比较，intern()</h1><p>1、new出来的对象引用永远指向堆内存，String.intern()返回对应pool中的对象</p>
+<p>2、Strings1=&quot;dsfsadf&quot;;这种字面量写法直接返回pool中的对象</p>
+<p>3、Strings2=&quot;dsafd&quot;+s1;指向堆，只有+左右都是&quot;&quot;字面量才返回pool中。</p>
+<p>4、String.intern()返回字符串对象的规范化表示形式。一个初始时为空的字符串池，它由类String私有地维护。String.intern()是一个Native方法，它的作用是：如果字符串常量池中已经包含一个等于此String对象的字符串，则返回代表池中这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中，并且返回此String对象的引用。记录首次出现的实例</p>
+<h1 id="6、请描述抽象类和接口的区别"><a href="#6、请描述抽象类和接口的区别" class="headerlink" title="6、请描述抽象类和接口的区别"></a>6、请描述抽象类和接口的区别</h1><p>1、抽象类的域没有特殊限制，接口的域自动为publicstaticfinal的，在声明的同时必须初始化</p>
+<p>2、接口中定义的方法必须（自动为）是publicabstract的，抽象类中的抽象方法可以是默认类型或者public类型或者protected类型</p>
+<p>3、Implements一个接口必须override所有方法，extends一个抽象类则只要override抽象方法。一个类只能继承一个类（抽象类），但是可以实现多个接口</p>
+<p>4、从选择上来讲，当所表达的意思是某些事物的共性的时候最好使用接口，而当表达的意思是某一个具体的事物的时候就用抽象类</p>
+<h1 id="7、内部类"><a href="#7、内部类" class="headerlink" title="7、内部类"></a>7、内部类</h1><p><strong>使用场景：</strong> 只考虑为它的外部类提供服务</p>
+<p>每个内部类都能够独立的实现接口或者继承类</p>
+<p><strong>成员内部类：</strong> 可以无条件访问外部类的所有成员属性和成员方法（包括private）。当成员内部类的field或method与外部类相同时默认访问的是内部类。每个实例都包含一个指向外围实例的引用，如果需要访问外围实例可使用outer.this.fild/method。在外部类中访问内部类的成员时需要先创建一个外部类，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Outter outter = <span class="keyword">new</span> Outter();</span><br><span class="line">Outter.Inner inner = outter.new Inner();<span class="comment">//必须通过 Outter 对象来创建</span></span><br></pre></td></tr></table></figure>
+<p><strong>局部内部类：</strong> 定义在一个方法内部或者是一段作用域内的类，仅限于在作用域内访问</p>
+<p>匿名内部类：</p>
+<p><strong>静态内部类：</strong> 不依赖于外部类，不能使用外部类的非static的域或者方法</p>
+<p>1、为什么成员内部类可以无条件的访问外部类的成员？</p>
+<p>内部类是java的一颗语法糖，编译之后会生成两个class文件，匿名内部类名字为外部类名$x，成员内部类名字为外部类名$内部类名，编译器会默认为成员内部类添加一个参数类型为指向外部类对象的构造方法。</p>
+<p>2、为什么局部内部类和匿名内部类只能访问部局部final变量？</p>
+<p>比如我们在一个方法内写了一个Thread匿名内部类，当外部的方法执行完毕后，方法内的局部变量生命周期结束，而Thread对象的生命周期还没有结束，所以必须使用final修改外部类的局部变量以使它在编译阶段就被放入常量池当中</p>
+<p>3、Object.this与Object.new</p>
+<p>当我们需要实例化一个成员内部类的时候，可以通过OuterClass.newInnerClass的方式初始化</p>
+<p>如果我们需要在内部类中生成对外部类对象的引用可以使用OuterClass.this</p>
+<h1 id="8、java多态的实现原理"><a href="#8、java多态的实现原理" class="headerlink" title="8、java多态的实现原理"></a>8、java多态的实现原理</h1><p>多态就是同一个消息根据发送对象的不同而采取多种不同的行为方式。主要体现在Overload和Override上</p>
+<h1 id="9、Object类都有什么方法"><a href="#9、Object类都有什么方法" class="headerlink" title="9、Object类都有什么方法"></a>9、Object类都有什么方法</h1><p>getClass(),toString(),hashCode(),clone(),wait(),notify(),notifyAll(),equals(),finalize()</p>
+<p>要用想使用clone()，目标类必须实现Cloneable接口，然后以public的方式重写clone()方法，Object中原生的native方法clone()执行的是此对象的浅复制</p>
+<h1 id="10、hashCode-的作用，域equals-有什么关系"><a href="#10、hashCode-的作用，域equals-有什么关系" class="headerlink" title="10、hashCode()的作用，域equals()有什么关系"></a>10、hashCode()的作用，域equals()有什么关系</h1><p>HashCode()返回该对象的hash()码值，Object()中的原生hashCode()是一个native方法，它将对象的内部地址转换成一个整数来实现。</p>
+<p>HashCode()有一个常规协定：</p>
+<p>1、当一个对象参与hash计算的成员域的值没有改变时，重复调用hashCode()值都相等；（一致性）</p>
+<p>2、若两个对象equals()那么他们的hashCode()必须相等;</p>
+<p>3、但是hashCode()相等，两个对象不一定equals()。这一点在hashMap的存储上有深刻体现。</p>
+<p>Overrideequals()方法必须重写hashCode()。重写equals()要满足对称性（x.equals(y)返回true时，y.equals(x)也必须返回true）、自反性（x.equals(x)必须返回true）、一致性（当x和y引用的对象信息没有被修改时，多次调用x.equals(y)应该得到同样的返回值）、传递性（x.equals(y)和y.equals(z)都返回true时，x.equals(z)也必须返回true）。</p>
+<h1 id="11、深复制与浅复制区别"><a href="#11、深复制与浅复制区别" class="headerlink" title="11、深复制与浅复制区别"></a>11、深复制与浅复制区别</h1><p><strong>浅复制：</strong> 会创建一个新对象，对于源对象的基本类型属性拷贝一份，引用类型属性也只是拷贝引用。实现方式：类要重写实现Cloneable接口，以public的方式直接super重写clone()方法</p>
+<p><strong>深复制：</strong> 拷贝对象所有的属性，并拷贝引用类型属性所指向的对象。实现方法：重写clone()方法自定义重写过程；</p>
+<p>对象序列化</p>
+<h1 id="12、说一下java异常体系"><a href="#12、说一下java异常体系" class="headerlink" title="12、说一下java异常体系"></a>12、说一下java异常体系</h1><p>Throwable是根接口，有两个子接口Error、Exception</p>
+<p>不可查异常：RunTimeException、Error</p>
+<p>可查异常：除不可查异常之外的Exception，比如IOException、SQLException</p>
+<p>注意事项：</p>
+<p>finally语句块，总会被执行，但除以下情况:</p>
+<p>1、finally语句块中出现异常</p>
+<p>2、前面的代码调用了System.exit()</p>
+<p>当try-catch语句块中有return语句时，方法会在返回前执行finally语句中的内容</p>
+<p>finally语句块中重新抛出异常会覆盖掉之前的异常，在finally中直接使用return会丢失异常。</p>
+<h1 id="13、java中存在内存泄漏吗？请简单描述"><a href="#13、java中存在内存泄漏吗？请简单描述" class="headerlink" title="13、java中存在内存泄漏吗？请简单描述"></a>13、java中存在内存泄漏吗？请简单描述</h1><p>从语法层面上来说没有，因为java有垃圾会收机制，然而在实际开发中，可能会存在无用但可达的对象，这些对象不能被GC回收，因此也会导致内存泄露的发生。</p>
+<p>1、HashMap、ArrayList这一类型的集合对象，经常会导致内存泄漏，当他们被声明为static时，生命周期是和程序一样长的。所以它们引用的对象在程序的整个生命周期内都存在。</p>
+<p>关于集合类还有一种情况是：当已添加到Set/Map中的对象，参与hashcode和equals()计算的变量被修改后，调用remove()无效，也会造成内存泄漏</p>
+<p>2、单例模式的使用也可能导致内存泄漏，因为单例对象初始化后将在java虚拟机的整个生命周期中存在，如果他引用了一个对象，这个对象以及这个对象引用的所有对象都无法被垃圾收集器回收。</p>
+<p>3、各种连接，如：dataSource、getConnection()、socket、io这些连接，JVM都不会主动回收，需要我们自己显式的在finally语句中close()</p>
+<p>4、使用ThreadLocal也可能会导致内存泄漏，ThreadLocal的get()方法是从当前线程对象的ThreadLocalMap属性中获取对应的值的，ThreadLocalMap中维护着以ThreadLocal的弱引用为key的元素，当外部没有一个引用引用ThreadLocal的时候，就会被回收，这时Map中的key就为null了，这个元素也就无法被访问了，所以可能会被回收。</p>
+<p>5、在使用Hibernate进行批量更新数据的时候也可能导致，因为更新数据后对象为持久态，会一直在session中存在，所以需要定期session、clear()强制清空缓存、session、flush()</p>
+<h1 id="14、简述整理容器体系"><a href="#14、简述整理容器体系" class="headerlink" title="14、简述整理容器体系"></a>14、简述整理容器体系</h1><img src="/2018/12/07/javaSE题目/collections.jpg">
+<p>Stack是extendsVector的</p>
+<p>LinkedHashSet、LinkedHashMap按照插入顺序排序</p>
+<p>Queue:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>在容量不足时抛异常</th>
+<th>为空或容量不足时回返回false或null</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插入</td>
+<td>add(e)</td>
+<td>offer(e)</td>
+</tr>
+<tr>
+<td>移除</td>
+<td>remove(e)</td>
+<td>poll(e)</td>
+</tr>
+<tr>
+<td>仅返回</td>
+<td>element(e)</td>
+<td>peek(e)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="15、ArrayList、LinkedList源码分析"><a href="#15、ArrayList、LinkedList源码分析" class="headerlink" title="15、ArrayList、LinkedList源码分析"></a>15、ArrayList、LinkedList源码分析</h1><h1 id="16、HashMap、HashSet源码分析"><a href="#16、HashMap、HashSet源码分析" class="headerlink" title="16、HashMap、HashSet源码分析"></a>16、HashMap、HashSet源码分析</h1><p>Jdk7：位桶+链表</p>
+<p>初始值：16最大值：2^30负载因子：0.75</p>
+<p>底层数组的长度总是2^n</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Entry &lt;?,?&gt;[] EMPTY_TABLE = &#123;&#125;;</span><br><span class="line"><span class="keyword">transient</span> Entry&lt;K,V&gt;[] table = (Entry&lt;K,V&gt;[]) EMPTY_TABLE; <span class="comment">//实际存储元素的地方</span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure>
+<p>Entry是一个实现了Map.Entry\&lt;K,V\&gt;的类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> K key;</span><br><span class="line">    V value;</span><br><span class="line">    Entry&lt;K,V&gt; next;</span><br><span class="line">    <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="comment">//equals()方法：当且仅当 key 和 value 都相同时才 equals</span></span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心构造方法：HashMap(intinitialCapacity,floatloadFactor);</p>
+<p>其他的构造方法都是调用这个构造方法。</p>
+<p>核心方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span></span>&#123;</span><br><span class="line">    <span class="comment">//如果 table 为空数组，先初始化数组</span></span><br><span class="line">    <span class="comment">//允许 key 为 null，放到 map[0]</span></span><br><span class="line">    <span class="comment">//根据 key 计算出 hash 值，然后找到这个 hash 值在数组中的位置</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);&#125; <span class="comment">//这样保证总是在数组范围内</span></span><br><span class="line">    <span class="comment">//如果容量大于了极限则扩容为原来容量的 2 倍</span></span><br><span class="line">    <span class="comment">//取出数组中的 Entry，遍历 Entry 如果发现 key equals 则替换 value</span></span><br><span class="line">    <span class="comment">//如果 key 都不相同则在 Entry 中添加，并且位于链头</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Entry放到数组的哪一个位置上是通过计算key的hashCode()得到的，当发生hash冲突(碰撞)，HashMap解决hash冲突的方式是用链表。这里要注意的是，比如A和B都hash后都映射到下标i中，之前已经有A了，当map.put(B)时，将B放到下标i中，A则为B的next，所以新值存放在数组中，旧值在新值的链表上。</p>
+<p>当size大于threshold(极限值)时，会发生扩容。threshold=capacity*loadfactor（容量*负载因子），扩容为原来的22倍。</p>
+<p>Jdk8：位桶+链表/红黑树</p>
+<p>当某个位桶的链表的长度达到某个阀值（默认为8）的时候，这个链表就将转换成红黑树。因为链表查找的时间复杂度为O(n),而红黑树一直是O(logn)，这样会提高效率</p>
+<p>HashSet：有一个HashMap成员域，所有方法直接调用HashMap中的方法。</p>
+<p>如何保证元素唯一性的？</p>
+<p>首先要存入的对象想要保证唯一性必须重写hashcode()和equals()方法，因为HashSet的底层实现是HashMap，Set的add()方法直接调用Map的put()方法，再解释map的put()方法</p>
+<h1 id="17、List和Set区别"><a href="#17、List和Set区别" class="headerlink" title="17、List和Set区别"></a>17、List和Set区别</h1><p>它们都实现了Collection接口，List允许重复元素，并且维护一定顺序。其中ArrayList底层为数组，随机访问O(1)，但是插入和删除速度慢O(n)；LinkedList底层为双向链表，插入删除快O(1)，查找慢O(n)，LinkedList可以用作栈、队列。</p>
+<p>Set不保存重复元素，HashSet使用了散列，长与查询；TreeSet将元素存储在红黑树当中，元素必须实现Comparable接口，维护特定顺序；LinkedHashSet也使用了散列，但又使用了链表来维护元素插入顺序。</p>
+<h1 id="18、说一下I-O框架"><a href="#18、说一下I-O框架" class="headerlink" title="18、说一下I/O框架"></a>18、说一下I/O框架</h1><p>主要包含File类、I/O流、RandomAccessFile类(支持对文件的随机读取和写入，主要结合nio使用)</p>
+<p>I/O包含字符流和字节流，各又分为输入输出两部分</p>
+<p>1、字节流</p>
+<p>InputStream表示从不同数据源产生的输入类：ByteArrayInputStream、StringBufferInuputStream、FileIInputStream、PipedInputStream、SequenceInputStream、FilterInputStream</p>
+<p>FilterInputStream做为装饰器的接口，来控制特定的输入流：DataInputStream、BufferedInputStream、LineNumInputStream</p>
+<p>OutputStream、FilterOutputStream有与输入流相对应的类PrintStream</p>
+<p>2、字符流，供提供Unicode操作</p>
+<p>Reader有FileReader、StringReader、CharArrayReader、PipedReader、BufferedReader</p>
+<p>Writer有FileWriter、StringWriter、CharArrayWriter、PipedWriter、BufferedWriter</p>
+<p>3、对象序列化</p>
+<p>应用场景：web服务器中的session对象，当有10万用户访问时，服务器内存可能会吃不消了，这时可以先把session序列化到磁盘上，等到需要用的时候再序列化回来。</p>
+<p>ObjectInputStream、ObjectOutputStream：用于序列化和反序列化</p>
+<p>默认序列化：</p>
+<p>要序列化的类必须实现Serializable接口（默认序列化）或者Externalizable（可以控制序列化的过程）</p>
+<p>用于普通序列化（深复制），默认序列化恢复的时候直接从存储的二进制为基础恢复，不调用任何构造器</p>
+<p>控制序列化的过程：</p>
+<p>（1）序列化一个Externalizable对象会按照writeExternal()方法进行，对于恢复一个Externalizable的对象，所有普通的构造器都会被调用（包括在字段定义时的初始化），然后调用readExternal()方法。</p>
+<p>（2）使用transient关键字逐个字段的关闭序列化</p>
+<p>HashSet中的map就是transient的</p>
+<p>注意：对于static的字段必须手动序列化，因为static的域不属于实例</p>
+<p>4、压缩类</p>
+<p>压缩输出类：ZipOutputStream、GZipOutputStream</p>
+<p>压缩输入类：ZipInputStream、GZipInputStream</p>
+<p>BufferedOutputStreamout=newBufferedOutputStream(newGZIPOutputStream(newFileOutputStream(&quot;E:/J2EE/新建文件夹/2.gz&quot;)));</p>
+<p>//压缩多个文件，可是用ZipOutputStream.putNextEntry()方法</p>
+<h1 id="19、java-nio"><a href="#19、java-nio" class="headerlink" title="19、java nio"></a>19、java nio</h1><p>1、与I/O的的不同点</p>
+<p>（1）I/O使用的是基于流的方式，每次产生或消费一个字节的数据，速度慢、NIO实用的是基于块的传送方式每次产生或消费一个数据块，速度较快</p>
+<p>（2）I/O的read()和write()方法都是阻塞的，而NIO有非阻塞模式</p>
+<p>（3）NIO的Selector允许一个线程监视多个输入通道</p>
+<p>2、NIO概述</p>
+<p>NIO是基于Channel和Buffer的io方式，通道是对流的模拟，传送数据必须通过一个通道，向通道发送数据的时候必须先把数据放到缓冲区中，从通道中读取数据的时候也必须读到缓冲区中。</p>
+<p>3、通道</p>
+<p>FileChannel从文件中读写数据DatagramChannel通过UDP读写网络中数据</p>
+<p>SocketChannel通过TCP读写网络中数据</p>
+<p>ServerSocketChannel可以监听新进来的TCP连接，对每一个新进来的连接都会创建一个SocketChannel</p>
+<p>FileChannel不能切换到非阻塞模式，套接字Channel可以</p>
+<p>4、缓冲区</p>
+<p>ByteBuffer、CharBuffer、DoubleBuffer、FloatBuffer、IntBuffer、LongBuffer等。</p>
+<p>Buffer的三个属性：</p>
+<p>capacity：缓冲区的容量，只能往里边写入capacity个Char、Byte等</p>
+<p>position、limit</p>
+<p>写数据时：position指示当前的位置（初始值为0），最大值为capacity-1</p>
+<p>limit表示最大能往缓冲区内写多少数据，写模式下==capacity</p>
+<p>读数据时：从写切换到读时（调用flip()方法），position将会被置为0，limit表示最多能够读多少数据，从写切换到读时，limit将会被设置为写时候的position的值</p>
+<p>5、使用Buffer读写数据一般步骤：</p>
+<p>写入数据到Buffer调用flip()方法从Buffer中读数据调用clear()方法（会清除缓冲区）或者compact()方法（只清除读过的数据）</p>
+<p>例：使用NIO读取文件中的汉字</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 打开一个 fileChannel</span></span><br><span class="line">    aFile = <span class="keyword">new</span> RandomAccessFile(<span class="string">"E:\\founder 实习\\temp\\nio\\testFileChannel.txt"</span>, <span class="string">"rw"</span>);</span><br><span class="line">    inChannel = aFile.getChannel();</span><br><span class="line">    <span class="comment">// 建立一个容量为 80 字节的 buffer</span></span><br><span class="line">    ByteBuffer buf = ByteBuffer.allocate(<span class="number">80</span>);</span><br><span class="line">    <span class="comment">// 从 channel 写入到 buffer</span></span><br><span class="line">    <span class="keyword">int</span> bytesRead = inChannel.read(buf);</span><br><span class="line">    <span class="keyword">if</span> (bytesRead != -<span class="number">1</span>) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Read "</span> + bytesRead);</span><br><span class="line">        buf.flip(); <span class="comment">// 为读数据做好准备</span></span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(buf.array(), <span class="number">0</span>, bytesRead, <span class="string">"UTF-8"</span>));</span><br><span class="line">        buf.clear(); <span class="comment">// 清空缓冲区</span></span><br><span class="line">        bytesRead = inChannel.read(buf);</span><br><span class="line">    &#125;</span><br><span class="line">    aFile.close();</span><br><span class="line">    inChannel.close();<span class="comment">// 关闭 fileChannel</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6、ServerSocketChannel</p>
+<p>用于监听新进来的TCP连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line">    serverSocketChannel.socket().bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">9999</span>));</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">        SocketChannel socketChannel = erverSocketChannel.accept();</span><br><span class="line">        <span class="comment">//do something with socketChannel...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认为阻塞模式，serverSocketChannel.configureBlocking(false);设置为非阻塞模式，serverSocketChannel.accept();会立即返回，所以需要判断返回的socektChannel是否为null</p>
+<p>7、SocketChannel</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">socketChannel = SocketChannel.open();</span><br><span class="line">socketChannel.connect(<span class="keyword">new</span> InetSocketAddress(<span class="string">"localhost"</span>, <span class="number">80</span>));</span><br><span class="line"><span class="keyword">while</span>(buf.hasRemaining()) &#123;</span><br><span class="line">    socketChannel.write(buf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认为阻塞模式，socketChannel.configureBlocking(false);设置为非阻塞模式，在非阻塞模式下，connect()、read()、write()方法可能在没有完成的情况下就返回了，因此要在循环中调用write()使用socketChannel.finishConnect()判断连接是否建立关注read()方法的返回值</p>
+<p>8、Selectors</p>
+<p>一个Selector可以检测一到多个NIO通道，这样一个单独的线程就可以管理多个Channel，从而可以管理多个网络链接。因为线程之间的切换存在着很大的开销，所以使用的线程越少越好。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Selector selector = Selector.open(); <span class="comment">// 打开选择器</span></span><br><span class="line">channel.configureBlocking(<span class="keyword">false</span>); <span class="comment">// 与 selector 共同使用须为非阻塞模式</span></span><br><span class="line">SelectionKey key = channel.register(selector, SelectionKey.OP_READ); <span class="comment">// 注册</span></span><br><span class="line"><span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> readyChannels = selector.select();<span class="comment">// 返回就绪的通道数</span></span><br><span class="line">    <span class="keyword">if</span>(readyChannels == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">    Set selectedKeys = selector.selectedKeys();</span><br><span class="line">    Iterator keyIterator = selectedKeys.iterator();</span><br><span class="line">    <span class="keyword">while</span>(keyIterator.hasNext()) &#123;</span><br><span class="line">        SelectionKey key = keyIterator.next();</span><br><span class="line">        <span class="keyword">if</span>(key.isAcceptable()) &#123;</span><br><span class="line">            <span class="comment">// 一个连接已经被 serverSocket accept() 到</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isConnectable()) &#123;</span><br><span class="line">            <span class="comment">// a connection was established with a remote server.</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isReadable()) &#123;</span><br><span class="line">            <span class="comment">// a channel is ready for reading</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isWritable()) &#123;</span><br><span class="line">            <span class="comment">// a channel is ready for writing</span></span><br><span class="line">        &#125;</span><br><span class="line">        keyIterator.remove ();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="20、字符编码"><a href="#20、字符编码" class="headerlink" title="20、字符编码"></a>20、字符编码</h1><p>1、iso8859-1</p>
+<p>是一种单字节编码与ASCII类似，最多能表示的字符范围是0-255,应用于英文系列。</p>
+<p>2、GBK</p>
+<p>GB2312只能表示简体字，英文和ISO8859-1一致，GBK能够同时用来表示简体字和繁体字，兼容GB2312。他们两者都兼容ISO8859-1。是是不定长编码。</p>
+<p>3、unicode</p>
+<p>是一种定长编码，可用来表示所有语言的字符，为定长双字节，不兼容ISO8859-1，java内部使用Unicode来处理。</p>
+<p>4、UTF-8</p>
+<p>是一种多字节不定长格式，UTF-8将ASCII字符编码成单一的字节形式，将非ASCII字符编码成2-3个字节。字符串的长度存储在UTF-8字符串的前两个字节中。</p>
+<h1 id="21、泛型"><a href="#21、泛型" class="headerlink" title="21、泛型"></a>21、泛型</h1><p>1、Java允许使用List等原生类型是为了向后兼容。</p>
+<p>2、泛型子类型化的规则：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List ll;</span><br><span class="line">List&lt;Object&gt; o = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">List&lt;Integer&gt; i = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">o = i; <span class="comment">//error</span></span><br><span class="line">ll = i; <span class="comment">//ok</span></span><br></pre></td></tr></table></figure>
+<p>用使用List\&lt;Objetct\&gt;与与用直接使用List的区别：后者逃避了编译器的类型检查，前者明确告诉编译器持有类型。前者不能与其它泛型的引用相互，但List的引用可以指向任意泛型的List,所以使用List\&lt;Object\&gt;更加安全。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java总结/" rel="tag"># java总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/07/jvm题目/" rel="next" title="jvm题目">
+                <i class="fa fa-chevron-left"></i> jvm题目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/07/java并发/" rel="prev" title="java并发">
+                java并发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/head.jpg" alt="郭世雄">
+            
+              <p class="site-author-name" itemprop="name">郭世雄</p>
+              <p class="site-description motion-element" itemprop="description">人生但苦无妨，良人当归即好</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/viviel" title="GitHub &rarr; https://github.com/viviel" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:viviel@163.com" title="E-Mail &rarr; mailto:viviel@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、jdk1-7与jdk1-8的新特性"><span class="nav-text">1、jdk1.7与jdk1.8的新特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、基本类型与包装类、基本类型的运算"><span class="nav-text">2、基本类型与包装类、基本类型的运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、switch是否能作用在byte、long、String上？"><span class="nav-text">3、switch是否能作用在byte、long、String上？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、String、StringBuffer、StringBuilder"><span class="nav-text">4、String、StringBuffer、StringBuilder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5、常见String比较，intern"><span class="nav-text">5、常见String比较，intern()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6、请描述抽象类和接口的区别"><span class="nav-text">6、请描述抽象类和接口的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7、内部类"><span class="nav-text">7、内部类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8、java多态的实现原理"><span class="nav-text">8、java多态的实现原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9、Object类都有什么方法"><span class="nav-text">9、Object类都有什么方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10、hashCode-的作用，域equals-有什么关系"><span class="nav-text">10、hashCode()的作用，域equals()有什么关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11、深复制与浅复制区别"><span class="nav-text">11、深复制与浅复制区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12、说一下java异常体系"><span class="nav-text">12、说一下java异常体系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13、java中存在内存泄漏吗？请简单描述"><span class="nav-text">13、java中存在内存泄漏吗？请简单描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14、简述整理容器体系"><span class="nav-text">14、简述整理容器体系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15、ArrayList、LinkedList源码分析"><span class="nav-text">15、ArrayList、LinkedList源码分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#16、HashMap、HashSet源码分析"><span class="nav-text">16、HashMap、HashSet源码分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#17、List和Set区别"><span class="nav-text">17、List和Set区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#18、说一下I-O框架"><span class="nav-text">18、说一下I/O框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#19、java-nio"><span class="nav-text">19、java nio</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20、字符编码"><span class="nav-text">20、字符编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21、泛型"><span class="nav-text">21、泛型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郭世雄</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
